@@ -25,9 +25,9 @@ def listen():
         )
     except sr.UnknownValueError:
         print("Tôi chưa nghe rõ")
-return None
+        return None
     except RequestError:
         print("Có lỗi kết nối mạng đã xảy ra")
-return None
-		
+        return None
+
     return text

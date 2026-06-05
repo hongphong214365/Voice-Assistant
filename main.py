@@ -14,4 +14,3 @@ while True:
 
 
     speech(reply)
-# anh thấy sai thụt lề thì khả năng là do em gửi thôi code gốc chạy ngon nha.
