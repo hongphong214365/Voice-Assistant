@@ -5,7 +5,7 @@ while True:
     text = listen()
 
     if not text:
-        contenue
+        continue
     if "tạm biệt" in text.lower():
         speech("Tạm biệt bạn")
         break
