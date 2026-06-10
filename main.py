@@ -6,8 +6,15 @@ while True:
 
     if not text:
         continue
-    if "tạm biệt" in text.lower():
-        speech("Tạm biệt bạn")
+    print("bạn", text)
+    if any(word in text.lower() for word in (
+        "tạm biệt bạn",
+        "bye bạn",
+        "kết thúc",
+        "tạm biệt",
+        "thoát",
+    )):
+        speech("Tạm biệt bạn, cần giúp gì thì nói mình nhé")
         break
 
     reply = think(text)
