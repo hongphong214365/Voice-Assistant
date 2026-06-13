@@ -15,7 +15,7 @@ The assistant can listen through the microphone, convert speech to text, process
 * Modular project structure for future expansion.
 
 ## Requirements
-
+* Windows 
 * Python 3.11 or newer
 * Microphone
 * Internet connection (for speech recognition and gTTS)
@@ -74,7 +74,10 @@ Handles:
 * Audio playback
 
 ## Install Dependencies
-
+```bash
+pip install -r requirements.txt
+```
+or
 ```bash
 pip install sounddevice
 pip install scipy

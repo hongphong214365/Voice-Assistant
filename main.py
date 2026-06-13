@@ -6,7 +6,7 @@ while True:
 
     if not text:
         continue
-    print("bạn", text)
+    print("bạn",  text)
     if any(word in text.lower() for word in (
         "tạm biệt bạn",
         "bye bạn",
