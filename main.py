@@ -1,6 +1,7 @@
 from listen import listen
 from brain import think
 from speak import speech
+from config import LANG
 while True:
     text = listen()
 
@@ -9,12 +10,17 @@ while True:
     print("bạn",  text)
     if any(word in text.lower() for word in (
         "tạm biệt bạn",
-        "bye bạn",
+        "bye",
         "kết thúc",
         "tạm biệt",
         "thoát",
+        "good bye",
+        "goodbye"
     )):
-        speech("Tạm biệt bạn, cần giúp gì thì nói mình nhé")
+        if LANG.startswith("vi"):
+            speech("Tạm biệt bạn, cần giúp gì thì nói mình nhé")
+        else:
+            speech("good bye")
         break
 
     reply = think(text)

@@ -1,10 +1,10 @@
 from gtts import gTTS
 import pygame
+from config import LANG
 def speech(text):
-    LANG="vi"
     tts = gTTS(
         text=text,
-        lang=LANG,
+        lang=LANG.split("-")[0],
     )
 # Lưu file
     tts.save("audio/Voice.mp3")

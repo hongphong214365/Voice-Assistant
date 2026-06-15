@@ -1,4 +1,5 @@
 import sounddevice as sd
+from config import LANG
 from scipy.io.wavfile import write
 import speech_recognition as sr
 def listen():
@@ -20,8 +21,8 @@ def listen():
         audio = r.record(source)
     try:
         text = r.recognize_google(
-            audio, 
-            language="vi-VN"
+            audio,
+            language=LANG,
         )
     except sr.UnknownValueError:
         print("Tôi chưa nghe rõ")
