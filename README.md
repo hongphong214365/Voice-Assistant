@@ -154,32 +154,76 @@ User:
 
 ```text
 bạn tên gì vậy
+bạn tên gì
+what is your name
+what's your name
 ```
 
 Assistant:
 
 ```text
 Tôi là trợ lí ảo của bạn
+I am your virtual assistant
 ```
-### Ask Time
-```text
 
-mấy giờ rồi
-what time is it
-```
-### Exit
+### Ask Time
 
 User:
 
 ```text
-tạm biệt
-good bye
+mấy giờ rồi
+what time is it
 ```
 
 Assistant:
 
 ```text
-Tạm biệt bạn
+Bây giờ là 17 giờ 5 phút
+It is 17:05
+```
+
+### Ask Date
+
+User:
+
+```text
+hôm nay là ngày mấy
+ngày mấy
+ngày bao nhiêu
+what is today's date
+what's today's date
+what is the date today
+what's the date
+what day is it today
+what day is it
+```
+
+Assistant:
+
+```text
+Hôm nay là ngày 15 tháng 6 năm 2026
+Today is June 15, 2026
+```
+
+### Exit
+
+User:
+
+```text
+tạm biệt bạn
+bye
+kết thúc
+tạm biệt
+thoát
+good bye
+goodbye
+```
+
+Assistant:
+
+```text
+Tạm biệt bạn, cần giúp gì thì nói mình nhé
+good bye
 ```
 
 The program will then exit.
