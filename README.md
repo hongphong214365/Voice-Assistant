@@ -5,7 +5,8 @@ Simple voice assistant written in Python.
 The assistant can listen through the microphone, convert speech to text, process simple commands, and reply using synthesized speech.
 
 ## Features
-
+* Basic English command support.
+* Configurable language setting.
 * Record audio from microphone.
 * Convert speech to text.
 * Reply with synthesized voice.
@@ -24,7 +25,7 @@ The assistant can listen through the microphone, convert speech to text, process
 
 ```text
 assistant/
-
+├── config.py
 ├── main.py
 ├── listen.py
 ├── brain.py
@@ -62,8 +63,12 @@ Examples:
 
 ```text
 xin chào
+Hello
 bạn tên gì
+Mấy giờ rồi?
+what time is it
 tạm biệt
+good bye
 ```
 
 #### speak.py
@@ -85,6 +90,31 @@ pip install SpeechRecognition
 pip install gtts
 pip install pygame-ce
 ```
+
+## Configuration
+
+The assistant language can be changed in:
+
+```python
+# config.py
+LANG = "vi-VN"
+```
+
+Examples:
+
+```python
+LANG = "vi-VN"
+```
+
+Vietnamese
+
+```python
+LANG = "en-US"
+```
+
+English
+
+After changing the language, restart the assistant.
 
 ## Running The Assistant
 
@@ -109,6 +139,7 @@ User:
 
 ```text
 xin chào
+hello
 ```
 
 Assistant:
@@ -130,13 +161,19 @@ Assistant:
 ```text
 Tôi là trợ lí ảo của bạn
 ```
+### Ask Time
+```text
 
+mấy giờ rồi
+what time is it
+```
 ### Exit
 
 User:
 
 ```text
 tạm biệt
+good bye
 ```
 
 Assistant:
@@ -185,7 +222,6 @@ Try:
 
 * Open applications by voice.
 * Search Google.
-* Read current time.
 * Read weather information.
 * Wake word support.
 * AI integration.
