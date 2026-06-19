@@ -1,0 +1,13 @@
+[project]
+name = "assistant"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "gtts>=2.5.4",
+    "pygame-ce>=2.5.7",
+    "scipy>=1.17.1",
+    "sounddevice>=0.5.5",
+    "speechrecognition>=3.17.0",
+]

@@ -17,6 +17,17 @@ Luôn trả lời bằng tiếng Việt.
 
 ---
 
+## Môi trường phát triển (Development Environment)
+
+* **Virtual Environment (venv):** `D:\venvers\assistant`
+* **Nguyên tắc chạy lệnh:**
+  * Luôn chạy lệnh Python bằng `D:\venvers\assistant\Scripts\python.exe` và cài thư viện bằng `D:\venvers\assistant\Scripts\pip.exe` trực tiếp (hoặc kích hoạt môi trường trước khi chạy lệnh).
+  * **Không** giải thích hay nhắc nhở người dùng về việc phải kích hoạt môi trường ảo này trước mỗi hành động chạy code hoặc cài thư viện, trừ khi người dùng chủ động hỏi hoặc gặp lỗi cụ thể liên quan đến môi trường.
+- Khi sinh câu lệnh terminal, bắt buộc phải dùng đường dẫn trực tiếp:
+    + Chạy code: D:\venvers\assistant\Scripts\python.exe <tên file>
+    + Cài thư viện: D:\venvers\assistant\Scripts\pip.exe install <tên_thư_viện>
+---
+
 ## Mục tiêu dự án
 
 Xây dựng Voice Assistant có khả năng:

@@ -1,1 +1,4 @@
-LANG="en-US"
+LANG = "vi-VN"
+AUDIO_DIR = "audio"
+FS = 44100
+RECORD_SECONDS = 5
