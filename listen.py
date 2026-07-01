@@ -1,15 +1,15 @@
 import os
 import tempfile
 import sounddevice as sd
-from config import LANG, AUDIO_DIR, FS, RECORD_SECONDS
+from config import LANG, AUDIO_DIR, FS, RECORD_SECONDS, DEBUG
 from scipy.io.wavfile import write
 import speech_recognition as sr
 
 def listen():
     fs = FS
     seconds = RECORD_SECONDS
-
-    print("Tôi đang nghe đây")
+    if DEBUG:
+        print("Tôi đang nghe đây")
     os.makedirs(AUDIO_DIR, exist_ok=True)
 
     try:
@@ -24,7 +24,8 @@ def listen():
         with tempfile.NamedTemporaryFile(suffix=".wav", dir=AUDIO_DIR, delete=False) as f:
             tmp = f.name
             write(tmp, fs, recording)
-        print("đang nhận diện")
+        if DEBUG:
+            print("đang nhận diện")
         r = sr.Recognizer()
         with sr.AudioFile(tmp) as source:
             audio = r.record(source)
