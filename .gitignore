@@ -1,5 +1,5 @@
 __pycache__/
 *.pyc
-*.wav
-audio/
+audio/record.wav
+audio/*.mp3
 commands\__pycache__/

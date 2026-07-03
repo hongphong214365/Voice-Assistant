@@ -3,3 +3,6 @@ AUDIO_DIR = "audio"
 FS = 44100
 RECORD_SECONDS = 5
 DEBUG = False
+START_SOUND = "start.wav"
+SUCCESS_SOUND = "success.wav"
+ERROR_SOUND = "error.wav"
