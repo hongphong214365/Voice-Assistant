@@ -25,12 +25,22 @@ The assistant can listen through the microphone, convert speech to text, process
 
 ```text
 assistant/
-├── config.py
-├── main.py
-├── listen.py
-├── brain.py
-├── speak.py
-└── audio/
+│
+├── audio/            # Saves temporary audio files
+├── commands/         # Custom command handlers
+│   ├── __init__.py
+│   ├── date_cmd.py
+│   ├── greeting_cmd.py
+│   ├── openApp_cmd.py
+│   ├── openWeb_cmd.py
+│   └── time_cmd.py
+│
+├── listen.py         # Speech-to-text module
+├── brain.py          # Logic coordinator
+├── speak.py          # Text-to-speech module
+├── main.py           # Application entry point
+├── config.py         # Language and parameters configurations
+└── README.md
 ```
 
 ### File Description
@@ -79,16 +89,17 @@ Handles:
 * Audio playback
 
 ## Install Dependencies
+
+### Using uv (Recommended)
+This project is configured with `uv`. To run or add dependencies:
+```bash
+# Add a dependency
+uv add <package_name>
+```
+
+### Using pip
 ```bash
 pip install -r requirements.txt
-```
-or
-```bash
-pip install sounddevice
-pip install scipy
-pip install SpeechRecognition
-pip install gtts
-pip install pygame-ce
 ```
 
 ## Configuration
@@ -118,8 +129,12 @@ After changing the language, restart the assistant.
 
 ## Running The Assistant
 
-Open a terminal inside the project folder:
+Using `uv` (Recommended):
+```bash
+uv run main.py
+```
 
+Using Python directly:
 ```bash
 python main.py
 ```
@@ -146,6 +161,7 @@ Assistant:
 
 ```text
 Chào bạn
+hello
 ```
 
 ### Ask Name
@@ -203,6 +219,46 @@ Assistant:
 ```text
 Hôm nay là ngày 15 tháng 6 năm 2026
 Today is June 15, 2026
+```
+
+### Open Website (Mở Website)
+
+User:
+```text
+mở google
+mở youtube
+mở github
+mở git hub
+mở gmail
+```
+
+Assistant:
+```text
+Đã mở google
+Đã mở youtube
+Đã mở github
+Đã mở git hub
+Đã mở gmail
+```
+
+### Open Application (Mở ứng dụng)
+
+User:
+```text
+mở notepad
+mở ghi chú
+mở máy tính
+mở calculator
+mở file explorer
+```
+
+Assistant:
+```text
+Đã mở notepad.
+Đã mở ghi chú.
+Đã mở máy tính.
+Đã mở calculator.
+Đã mở file explorer.
 ```
 
 ### Exit
@@ -264,8 +320,6 @@ Try:
 
 ## Future Plans
 
-* Open applications by voice.
-* Search Google.
 * Read weather information.
 * Wake word support.
 * AI integration.

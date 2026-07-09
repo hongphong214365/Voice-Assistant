@@ -10,5 +10,5 @@ def handle(text):
         now = datetime.now()
         if LANG.startswith("vi"):
             return f"Bây giờ là {now.hour} giờ {now.minute} phút"
-        return f"It is {now.hour}:{now.minute}"
+        return f"It is {now.hour}:{now.minute:02d}"
     return None

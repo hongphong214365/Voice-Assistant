@@ -1,5 +1,8 @@
+"""
+File này chứa lệnh giúp trợ lí có thể mở các ứng dụng.
+"""
 import subprocess
-
+# Danh sách các ứng dụng.
 APPS = {
     "notepad": "notepad.exe",
     "ghi chú": "notepad.exe",
