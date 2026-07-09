@@ -1,33 +1,35 @@
-# Python Voice Assistant
+# Trợ lý ảo bằng Python
 
-Simple voice assistant written in Python.
+Trợ lý ảo bằng giọng nói đơn giản được viết bằng Python.
 
-The assistant can listen through the microphone, convert speech to text, process simple commands, and reply using synthesized speech.
+Trợ lý có thể nghe qua micrô, chuyển giọng nói thành văn bản, xử lý các lệnh đơn giản và phản hồi bằng giọng nói tổng hợp.
 
-## Features
-* Basic English command support.
-* Configurable language setting.
-* Record audio from microphone.
-* Convert speech to text.
-* Reply with synthesized voice.
-* Run continuously in a loop.
-* Exit when the user says "tạm biệt".
-* Simple command processing through a separate brain module.
-* Modular project structure for future expansion.
+[English version](README_en.md)
 
-## Requirements
+## Tính năng
+* Hỗ trợ các lệnh cơ bản bằng tiếng Anh.
+* Cấu hình cài đặt ngôn ngữ.
+* Ghi âm âm thanh từ micrô.
+* Chuyển giọng nói thành văn bản.
+* Phản hồi bằng giọng nói tổng hợp.
+* Chạy liên tục trong một vòng lặp.
+* Thoát khi người dùng nói "tạm biệt".
+* Xử lý các lệnh đơn giản thông qua một mô-đun brain riêng biệt.
+* Cấu trúc dự án dạng mô-đun để dễ dàng mở rộng trong tương lai.
+
+## Yêu cầu hệ thống
 * Windows 
-* Python 3.11 or newer
-* Microphone
-* Internet connection (for speech recognition and gTTS)
+* Python 3.11 hoặc mới hơn
+* Micrô
+* Kết nối Internet (để nhận dạng giọng nói và gTTS)
 
-## Project Structure
+## Cấu trúc dự án
 
 ```text
 assistant/
 │
-├── audio/            # Saves temporary audio files
-├── commands/         # Custom command handlers
+├── audio/            # Lưu các tệp âm thanh tạm thời
+├── commands/         # Bộ xử lý các lệnh tùy chỉnh
 │   ├── __init__.py
 │   ├── date_cmd.py
 │   ├── greeting_cmd.py
@@ -35,41 +37,41 @@ assistant/
 │   ├── openWeb_cmd.py
 │   └── time_cmd.py
 │
-├── listen.py         # Speech-to-text module
-├── brain.py          # Logic coordinator
-├── speak.py          # Text-to-speech module
-├── main.py           # Application entry point
-├── config.py         # Language and parameters configurations
+├── listen.py         # Mô-đun chuyển giọng nói thành văn bản (STT)
+├── brain.py          # Bộ điều phối logic
+├── speak.py          # Mô-đun chuyển văn bản thành giọng nói (TTS)
+├── main.py           # Điểm khởi chạy ứng dụng
+├── config.py         # Cấu hình ngôn ngữ và các tham số
 └── README.md
 ```
 
-### File Description
+### Mô tả tệp tin
 
 #### main.py
 
-Main entry point.
+Điểm khởi chạy chính.
 
-Controls the assistant workflow:
+Điều phối luồng công việc của trợ lý:
 
 ```text
-Listen -> Think -> Speak
+Listen (Nghe) -> Think (Nghĩ) -> Speak (Nói)
 ```
 
 #### listen.py
 
-Handles:
+Xử lý:
 
-* Audio recording
-* Speech recognition
+* Ghi âm âm thanh
+* Nhận dạng giọng nói
 
 #### brain.py
 
-Handles:
+Xử lý:
 
-* Command processing
-* Response generation
+* Xử lý lệnh
+* Tạo phản hồi
 
-Examples:
+Ví dụ:
 
 ```text
 xin chào
@@ -83,90 +85,90 @@ good bye
 
 #### speak.py
 
-Handles:
+Xử lý:
 
-* Text-to-speech generation
-* Audio playback
+* Tạo giọng nói tổng hợp từ văn bản
+* Phát lại âm thanh
 
-## Install Dependencies
+## Cài đặt các thư viện phụ thuộc
 
-### Using uv (Recommended)
-This project is configured with `uv`. To run or add dependencies:
+### Sử dụng uv (Được khuyến nghị)
+Dự án này được cấu hình với `uv`. Để chạy hoặc thêm các thư viện phụ thuộc:
 ```bash
-# Add a dependency
+# Thêm một thư viện
 uv add <package_name>
 ```
 
-### Using pip
+### Sử dụng pip
 ```bash
 pip install -r requirements.txt
 ```
 
-## Configuration
+## Cấu hình
 
-The assistant language can be changed in:
+Ngôn ngữ của trợ lý có thể được thay đổi trong:
 
 ```python
 # config.py
 LANG = "vi-VN"
 ```
 
-Examples:
+Ví dụ:
 
 ```python
 LANG = "vi-VN"
 ```
 
-Vietnamese
+Tiếng Việt
 
 ```python
 LANG = "en-US"
 ```
 
-English
+Tiếng Anh
 
-After changing the language, restart the assistant.
+Sau khi thay đổi ngôn ngữ, hãy khởi động lại trợ lý.
 
-## Running The Assistant
+## Chạy trợ lý ảo
 
-Using `uv` (Recommended):
+Sử dụng `uv` (Được khuyến nghị):
 ```bash
 uv run main.py
 ```
 
-Using Python directly:
+Sử dụng Python trực tiếp:
 ```bash
 python main.py
 ```
 
-Example:
+Ví dụ:
 
 ```text
 Tôi đang nghe đây
 đang nhận diện
 ```
 
-## Supported Commands
+## Các lệnh hỗ trợ
 
-### Greeting
+### Xin chào (Greeting)
 
-User:
+Người dùng:
 
 ```text
 xin chào
 hello
 ```
 
-Assistant:
+Trợ lý:
 
 ```text
 Chào bạn
 hello
 ```
 
-### Ask Name
+### Hỏi tên (Ask Name)
 
-User:
+Người dùng:
 
 ```text
 bạn tên gì vậy
@@ -175,32 +177,32 @@ what is your name
 what's your name
 ```
 
-Assistant:
+Trợ lý:
 
 ```text
 Tôi là trợ lí ảo của bạn
 I am your virtual assistant
 ```
 
-### Ask Time
+### Hỏi giờ (Ask Time)
 
-User:
+Người dùng:
 
 ```text
 mấy giờ rồi
 what time is it
 ```
 
-Assistant:
+Trợ lý:
 
 ```text
 Bây giờ là 17 giờ 5 phút
 It is 17:05
 ```
 
-### Ask Date
+### Hỏi ngày (Ask Date)
 
-User:
+Người dùng:
 
 ```text
 hôm nay là ngày mấy
@@ -214,16 +216,16 @@ what day is it today
 what day is it
 ```
 
-Assistant:
+Trợ lý:
 
 ```text
 Hôm nay là ngày 15 tháng 6 năm 2026
 Today is June 15, 2026
 ```
 
-### Open Website (Mở Website)
+### Mở Website (Open Website)
 
-User:
+Người dùng:
 ```text
 mở google
 mở youtube
@@ -232,7 +234,7 @@ mở git hub
 mở gmail
 ```
 
-Assistant:
+Trợ lý:
 ```text
 Đã mở google
 Đã mở youtube
@@ -241,9 +243,9 @@ Assistant:
 Đã mở gmail
 ```
 
-### Open Application (Mở ứng dụng)
+### Mở ứng dụng (Open Application)
 
-User:
+Người dùng:
 ```text
 mở notepad
 mở ghi chú
@@ -252,7 +254,7 @@ mở calculator
 mở file explorer
 ```
 
-Assistant:
+Trợ lý:
 ```text
 Đã mở notepad.
 Đã mở ghi chú.
@@ -261,9 +263,9 @@ Assistant:
 Đã mở file explorer.
 ```
 
-### Exit
+### Thoát (Exit)
 
-User:
+Người dùng:
 
 ```text
 tạm biệt bạn
@@ -275,61 +277,61 @@ good bye
 goodbye
 ```
 
-Assistant:
+Trợ lý:
 
 ```text
 Tạm biệt bạn, cần giúp gì thì nói mình nhé
 good bye
 ```
 
-The program will then exit.
+Sau đó chương trình sẽ kết thúc.
 
-## Troubleshooting
+## Xử lý sự cố (Troubleshooting)
 
-### No module named 'speech_recognition'
+### Lỗi No module named 'speech_recognition'
 
-Install:
+Cài đặt:
 
 ```bash
 pip install SpeechRecognition
 ```
 
-### No module named 'sounddevice'
+### Lỗi No module named 'sounddevice'
 
-Install:
+Cài đặt:
 
 ```bash
 pip install sounddevice
 ```
 
-### Permission denied: audio/Voice.mp3
+### Lỗi Permission denied: audio/Voice.mp3
 
-The audio file may still be in use.
+Tệp âm thanh có thể vẫn đang được sử dụng.
 
-Make sure pygame has finished playing the file before deleting or recreating it.
+Đảm bảo pygame đã phát xong tệp âm thanh trước khi xóa hoặc tạo lại nó.
 
-### UnknownValueError
+### Lỗi UnknownValueError
 
-Speech recognition could not understand the audio.
+Trình nhận dạng giọng nói không thể hiểu được âm thanh.
 
-Try:
+Hãy thử:
 
-* Speaking more clearly
-* Reducing background noise
-* Increasing recording duration
+* Nói rõ ràng hơn
+* Giảm tiếng ồn xung quanh
+* Tăng thời lượng ghi âm
 
-## Future Plans
+## Kế hoạch tương lai
 
-* Read weather information.
-* Wake word support.
-* AI integration.
+* Đọc thông tin thời tiết.
+* Hỗ trợ từ kích hoạt (Wake word).
+* Tích hợp AI.
 
-## Security Notes
+## Lưu ý bảo mật
 
-Do not store passwords or sensitive information inside source code.
+Không lưu trữ mật khẩu hoặc thông tin nhạy cảm trong mã nguồn.
 
-Keep API keys and tokens in environment variables whenever possible.
+Hãy lưu các khóa API và mã thông báo (token) trong các biến môi trường bất cứ khi nào có thể.
 
-## License
+## Giấy phép (License)
 
 MIT License
