@@ -1,12 +1,10 @@
 from config import LANG
 
+
 def handle(text):
 
     # Xin chào.
-    if (
-        "xin chào" in text
-        or "hello" in text
-    ):
+    if "xin chào" in text or "hello" in text:
         if LANG.startswith("vi"):
             return "Chào bạn"
         return "hello"

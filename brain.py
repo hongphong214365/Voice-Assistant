@@ -1,5 +1,7 @@
 from commands import COMMANDS
 from config import LANG
+
+
 def think(text):
     text = text.lower()
 
@@ -7,7 +9,6 @@ def think(text):
         response = command.handle(text)
         if response:
             return response
-
 
     # Không hiểu.
     if LANG.startswith("vi"):

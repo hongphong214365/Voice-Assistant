@@ -1,16 +1,19 @@
 """
 File này chứa lệnh giúp trợ lí có thể mở các ứng dụng.
 """
+
 import subprocess
+
 # Danh sách các ứng dụng.
 APPS = {
     "notepad": "notepad.exe",
     "ghi chú": "notepad.exe",
     "máy tính": "calc.exe",
     "calculator": "calc.exe",
-    "file explorer": "explorer.exe"
+    "file explorer": "explorer.exe",
 }
-    
+
+
 def handle(text):
     if "mở" not in text:
         return None

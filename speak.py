@@ -4,12 +4,15 @@ import tempfile
 import os
 from config import LANG, AUDIO_DIR
 
+
 def speech(text):
     # generate TTS to a temporary file inside audio dir
     os.makedirs(AUDIO_DIR, exist_ok=True)
     tmp = None
     try:
-        with tempfile.NamedTemporaryFile(suffix=".mp3", dir=AUDIO_DIR, delete=False) as f:
+        with tempfile.NamedTemporaryFile(
+            suffix=".mp3", dir=AUDIO_DIR, delete=False
+        ) as f:
             tmp = f.name
         tts = gTTS(text=text, lang=LANG.split("-")[0])
         tts.save(tmp)

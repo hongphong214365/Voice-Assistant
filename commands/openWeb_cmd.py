@@ -9,6 +9,7 @@ SITES = {
     "git hub": "https://github.com",
 }
 
+
 # Hàm xử lí.
 def handle(text: str) -> str | None:
     if not text.startswith("mở "):

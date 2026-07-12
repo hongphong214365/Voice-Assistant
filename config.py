@@ -6,3 +6,4 @@ DEBUG = False
 START_SOUND = "start.wav"
 SUCCESS_SOUND = "success.wav"
 ERROR_SOUND = "error.wav"
+STATE = {"LISTENING": True}
