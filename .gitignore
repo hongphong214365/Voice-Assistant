@@ -3,3 +3,5 @@ __pycache__/
 audio/record.wav
 audio/*.mp3
 commands\__pycache__/
+dist/
+build/

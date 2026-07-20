@@ -6,7 +6,9 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "gtts>=2.5.4",
+    "keyboard>=0.13.5",
     "pygame-ce>=2.5.7",
+    "pyinstaller>=6.21.0",
     "scipy>=1.17.1",
     "sounddevice>=0.5.5",
     "speechrecognition>=3.17.0",

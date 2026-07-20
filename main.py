@@ -4,12 +4,14 @@ from listen import listen
 from brain import think
 from speak import speech
 from config import LANG, AUDIO_DIR, DEBUG, STATE
+from hotkey import register_hotkeys
 
 # ensure audio dir exists
 os.makedirs(AUDIO_DIR, exist_ok=True)
 
 
 def main():
+    register_hotkeys()
     try:
         if LANG.startswith("vi"):
             speech("Chào bạn, tôi đã sẵn sàng")
@@ -19,6 +21,7 @@ def main():
             if not STATE["LISTENING"]:
                 time.sleep(0.1)
                 continue
+
             text = listen()
             if not text:
                 continue
@@ -46,7 +49,9 @@ def main():
     except KeyboardInterrupt:
         print("\nExiting...")
     except Exception as e:
-        print("Đã xảy ra lỗi:", e)
+        import traceback
+
+        traceback.print_exc()
 
 
 if __name__ == "__main__":
