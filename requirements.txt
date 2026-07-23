@@ -12,7 +12,7 @@ pygame-ce==2.5.7
 requests==2.34.2
 scipy==1.18.0
 sounddevice==0.5.5
-SpeechRecognition==3.16.1
+SpeechRecognition==3.17.0
 standard-aifc==3.13.0
 standard-chunk==3.13.0
 typing_extensions==4.16.0
