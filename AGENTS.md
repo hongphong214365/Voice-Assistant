@@ -85,21 +85,32 @@ Luôn ưu tiên tách module rõ ràng.
 ```text
 assistant/
 │
-├── audio/
-│
-├── commands/
+├── audio/            # Lưu các tệp âm thanh tạm thời
+├── commands/         # Chứa các lệnh của trợ lý
 │   ├── __init__.py
-│   ├── greeting_cmd.py
 │   ├── date_cmd.py
+│   ├── greeting_cmd.py
+│   ├── listening_cmd.py
+│   ├── openApp_cmd.py
+│   ├── openWeb_cmd.py
 │   └── time_cmd.py
 │
-├── listen.py
-├── brain.py
-├── speak.py
-├── main.py
-├── config.py
+├── tools/            # Các công cụ hỗ trợ
+│   └── generate_audio.py
 │
-└── agent.md
+├── listen.py         # Nhận âm thanh và chuyển thành văn bản (STT)
+├── brain.py          # Xử lý logic
+├── speak.py          # Chuyển văn bản thành giọng nói (TTS)
+├── sound.py          # Phát âm thanh thông báo trạng thái
+├── hotkey.py         # Quản lý phím tắt kích hoạt
+├── main.py           # Điều phối chương trình
+├── config.py         # Cấu hình ngôn ngữ và tham số
+├── pyproject.toml    # Cấu hình dự án của uv
+├── requirements.txt  # Danh sách thư viện phụ thuộc (pip fallback)
+├── LICENSE           # Giấy phép
+├── AGENTS.md         # Hướng dẫn của Agent
+├── README.md         # Hướng dẫn tiếng Việt
+└── README_en.md      # Hướng dẫn tiếng Anh
 ```
 
 ### Chức năng từng module
@@ -109,9 +120,12 @@ assistant/
 | listen.py | Nhận âm thanh và chuyển thành văn bản |
 | brain.py | Xử lý logic |
 | speak.py | Chuyển văn bản thành giọng nói |
+| sound.py | Phát âm thanh thông báo trạng thái |
+| hotkey.py | Quản lý phím tắt kích hoạt |
 | main.py | Điều phối chương trình |
 | config.py | Cấu hình ngôn ngữ và tham số |
 | commands/ | Chứa các lệnh của trợ lý |
+| tools/ | Các công cụ hỗ trợ phát triển |
 | audio/ | Lưu file âm thanh tạm |
 
 Không gộp toàn bộ logic vào một file nếu không thực sự cần thiết.

@@ -38,12 +38,22 @@ assistant/
 │   ├── openWeb_cmd.py
 │   └── time_cmd.py
 │
-├── listen.py         # Speech-to-text module
-├── brain.py          # Logic coordinator
-├── speak.py          # Text-to-speech module
-├── main.py           # Application entry point
+├── tools/            # Development tools
+│   └── generate_audio.py
+│
+├── listen.py         # Speech-to-text module (STT)
+├── brain.py          # Logic coordinator for processing commands
+├── speak.py          # Text-to-speech module (TTS)
+├── sound.py          # Play state notification sounds
+├── hotkey.py         # Manage trigger hotkeys
+├── main.py           # Main entry point of the application
 ├── config.py         # Language and parameters configurations
-└── README.md
+├── pyproject.toml    # Project configuration for uv
+├── requirements.txt  # Project dependencies list (pip fallback)
+├── LICENSE           # Project license
+├── AGENTS.md         # Development guidelines for Agent
+├── README.md         # Vietnamese documentation
+└── README_en.md      # English documentation
 ```
 
 ### File Description
@@ -142,12 +152,9 @@ Using Python directly:
 python main.py
 ```
 
-Example:
-
-```text
-Tôi đang nghe đây
-đang nhận diện
-```
+### Operational Status and Notification Sounds
+* **Notification Sounds**: When starting to listen, listening successfully, or encountering an error, the assistant will play notification sounds.
+* **Resume Listening**: When the assistant is paused/stopped listening, you can press the hotkey **`ctrl+alt+a`** to resume listening.
 
 ## Supported Commands
 
