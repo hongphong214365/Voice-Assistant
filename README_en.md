@@ -33,6 +33,7 @@ assistant/
 │   ├── __init__.py
 │   ├── date_cmd.py
 │   ├── greeting_cmd.py
+│   ├── listening_cmd.py
 │   ├── openApp_cmd.py
 │   ├── openWeb_cmd.py
 │   └── time_cmd.py
@@ -261,6 +262,22 @@ Assistant:
 Đã mở máy tính.
 Đã mở calculator.
 Đã mở file explorer.
+```
+
+### Stop Listening (Tạm dừng nghe)
+
+User:
+```text
+Tạm dừng nghe
+dừng nghe
+Ngừng  nghe
+stop listening
+```
+
+Assistant:
+```text
+Đã dừng nghe, ấn phím tắt để tiếp tục nghe.
+Stopped listening, press the shortcut to continue listening.
 ```
 
 ### Exit
