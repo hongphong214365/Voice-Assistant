@@ -46,53 +46,7 @@ assistant/
 └── README.md
 ```
 
-### Mô tả tệp tin
 
-#### main.py
-
-Điểm khởi chạy chính.
-
-Điều phối luồng công việc của trợ lý:
-
-```text
-Listen (Nghe) -> Think (Nghĩ) -> Speak (Nói)
-```
-
-#### listen.py
-
-Xử lý:
-
-* Ghi âm âm thanh
-* Nhận dạng giọng nói
-
-#### brain.py
-
-Xử lý:
-
-* Xử lý lệnh
-* Tạo phản hồi
-
-Ví dụ:
-
-```text
-xin chào
-Hello
-bạn tên gì
-
-Mấy giờ rồi?
-what time is it
-dừng nghe
-stop listening
-tạm biệt
-good bye
-```
-
-#### speak.py
-
-Xử lý:
-
-* Tạo giọng nói tổng hợp từ văn bản
-* Phát lại âm thanh
 
 ## Cài đặt các thư viện phụ thuộc
 

@@ -56,50 +56,7 @@ assistant/
 └── README_en.md      # English documentation
 ```
 
-### File Description
 
-#### main.py
-
-Main entry point.
-
-Controls the assistant workflow:
-
-```text
-Listen -> Think -> Speak
-```
-
-#### listen.py
-
-Handles:
-
-* Audio recording
-* Speech recognition
-
-#### brain.py
-
-Handles:
-
-* Command processing
-* Response generation
-
-Examples:
-
-```text
-xin chào
-Hello
-bạn tên gì
-Mấy giờ rồi?
-what time is it
-tạm biệt
-good bye
-```
-
-#### speak.py
-
-Handles:
-
-* Text-to-speech generation
-* Audio playback
 
 ## Install Dependencies
 
