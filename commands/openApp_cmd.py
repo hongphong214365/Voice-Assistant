@@ -2,16 +2,15 @@
 File này chứa lệnh giúp trợ lí có thể mở các ứng dụng.
 """
 
+import json
+from pathlib import Path
 import subprocess
 
-# Danh sách các ứng dụng.
-APPS = {
-    "notepad": "notepad.exe",
-    "ghi chú": "notepad.exe",
-    "máy tính": "calc.exe",
-    "calculator": "calc.exe",
-    "file explorer": "explorer.exe",
-}
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_FILE = BASE_DIR / "data" / "apps.json"
+
+with DATA_FILE.open(encoding="utf-8") as file:
+    APPS = json.load(file)
 
 
 def handle(text):

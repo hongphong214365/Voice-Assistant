@@ -1,13 +1,12 @@
 import webbrowser
+import json
+from pathlib import Path
 
-# Danh sách website, có thể mở rộng.
-SITES = {
-    "google": "https://google.com",
-    "youtube": "https://www.youtube.com",
-    "gmail": "https://mail.google.com",
-    "github": "https://github.com",
-    "git hub": "https://github.com",
-}
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_FILE = BASE_DIR / "data" / "websites.json"
+
+with DATA_FILE.open(encoding="utf-8") as file:
+    SITES = json.load(file)
 
 
 # Hàm xử lí.
