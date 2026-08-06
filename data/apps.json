@@ -3,5 +3,16 @@
     "ghi chú": "notepad.exe",
     "máy tính": "calc.exe",
     "calculator": "calc.exe",
-    "file explorer": "explorer.exe"
+    "file explorer": "explorer.exe",
+    "trình quản lí tệp": "explorer.exe",
+    "paint": "mspaint.exe",
+    "vẽ": "mspaint.exe"
+    "command prompt": "cmd.exe",
+    "cmd": "cmd.exe",
+    "powershell": "powershell.exe",
+    "power shell": "powershell.exe",
+    "task manager": "taskmgr.exe",
+    "trình quản lý tác vụ": "taskmgr.exe",
+    "control panel": "control.exe",
+    "bảng điều khiển": "control.exe",
 }

@@ -1,7 +1,19 @@
 {
     "google": "https://google.com",
-    "youtube": "https://www.youtube.com",
+    "youtube": "https://youtube.com",
     "gmail": "https://mail.google.com",
     "github": "https://github.com",
-    "git hub": "https://github.com"
+    "git hub": "https://github.com",
+    "chat gpt": "https://chatgpt.com",
+    "chatgpt": "https://chatgpt.com",
+    "reddit": "https://reddit.com",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "tiktok": "https://tiktok.com",
+    "wikipedia": "https://wikipedia.org",
+    "stackoverflow": "https://stackoverflow.com",
+    "linkedin": "https://linkedin.com",
+    "discord": "https://discord.com",
+    "spotify": "https://open.spotify.com",
+    "amazon": "https://amazon.com"
 }
