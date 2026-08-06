@@ -1,101 +1,33 @@
 # Python Voice Assistant
 
-Simple voice assistant written in Python.
-
-The assistant can listen through the microphone, convert speech to text, process simple commands, and reply using synthesized speech.
+A simple voice-controlled assistant that supports speech recognition and response (Vietnamese and English) on Windows OS.
 
 [Bản tiếng Việt](README.md)
 
 ## Features
-* Basic English command support.
-* Configurable language setting.
-* Record audio from microphone.
-* Convert speech to text.
-* Reply with synthesized voice.
-* Run continuously in a loop.
-* Exit when the user says "tạm biệt".
-* Simple command processing through a separate brain module.
-* Modular project structure for future expansion.
+* Supports recognition and response in both Vietnamese and English.
+* Controls and opens applications/websites using voice commands (easily customizable).
+* Records audio from microphone and converts speech to text (STT).
+* Responds using synthesized speech (TTS).
+* Runs continuously in a loop, automatically pausing or exiting when command is received.
 
 ## Requirements
-* Windows 
+* Windows
 * Python 3.11 or newer
 * Microphone
 * Internet connection (for speech recognition and gTTS)
 
-## Project Structure
-
-```text
-assistant/
-│
-├── audio/            # Saves temporary audio files
-├── commands/         # Custom command handlers
-│   ├── __init__.py
-│   ├── date_cmd.py
-│   ├── greeting_cmd.py
-│   ├── listening_cmd.py
-│   ├── openApp_cmd.py
-│   ├── openWeb_cmd.py
-│   └── time_cmd.py
-│
-├── tools/            # Development tools
-│   └── generate_audio.py
-│
-├── listen.py         # Speech-to-text module (STT)
-├── brain.py          # Logic coordinator for processing commands
-├── speak.py          # Text-to-speech module (TTS)
-├── sound.py          # Play state notification sounds
-├── hotkey.py         # Manage trigger hotkeys
-├── main.py           # Main entry point of the application
-├── config.py         # Language and parameters configurations
-├── pyproject.toml    # Project configuration for uv
-├── requirements.txt  # Project dependencies list (pip fallback)
-├── LICENSE           # Project license
-├── AGENTS.md         # Development guidelines for Agent
-├── README.md         # Vietnamese documentation
-└── README_en.md      # English documentation
-```
-
-
-
 ## Install Dependencies
 
 ### Using uv (Recommended)
-This project is configured with `uv`. To run or add dependencies:
 ```bash
-# Add a dependency
-uv add <package_name>
+uv sync
 ```
 
 ### Using pip
 ```bash
 pip install -r requirements.txt
 ```
-
-## Configuration
-
-The assistant language can be changed in:
-
-```python
-# config.py
-LANG = "vi-VN"
-```
-
-Examples:
-
-```python
-LANG = "vi-VN"
-```
-
-Vietnamese
-
-```python
-LANG = "en-US"
-```
-
-English
-
-After changing the language, restart the assistant.
 
 ## Running The Assistant
 
@@ -108,211 +40,174 @@ Using Python directly:
 ```bash
 python main.py
 ```
+*Upon successful startup, the assistant will play a notification sound and announce: "Chào bạn, tôi đã sẵn sàng" (or "Hello, I'm ready" if the language is configured to English).*
 
-### Operational Status and Notification Sounds
-* **Notification Sounds**: When starting to listen, listening successfully, or encountering an error, the assistant will play notification sounds.
-* **Resume Listening**: When the assistant is paused/stopped listening, you can press the hotkey **`ctrl+alt+a`** to resume listening.
+## Configuration
+
+### 1. Language Configuration
+You can change the assistant's language in the `config.py` file by editing the `LANG` variable:
+* Vietnamese: `LANG = "vi-VN"`
+* English: `LANG = "en-US"`
+
+*After changing the language, please restart the assistant.*
+
+### 2. Configure Assistant to Open Websites
+You can add or modify the websites you want the assistant to open in the `data/websites.json` file.
+
+The JSON format must strictly follow the `"name": "link"` key-value structure:
+```json
+{
+  "google": "https://google.com",
+  "youtube": "https://youtube.com",
+  "facebook": "https://facebook.com",
+  "face book": "https://facebook.com"
+}
+```
+**Notes:**
+* **Name (Key):** The name you say to the bot to open that website. You can name it whatever you like. If you're concerned about the bot misinterpreting your pronunciation, you can assign multiple names to the same link (e.g. `"facebook"` and `"face book"` as shown above).
+* **Link (Value):** The URL to the website. If you are not sure if the link is correct, access the website using your browser and copy the exact URL from the address bar.
+* You can delete default links if you don't use them.
+
+### 3. Configure Assistant to Open Applications
+Similar to websites, you can configure the applications you want to open in the `data/apps.json` file.
+
+**Notes:**
+* You must provide the **exact absolute path** to the executable file (`.exe`) of the application so that the bot can open it.
+* The JSON structure is identical to websites. Note that you should use double backslashes `\\` (or forward slashes `/`) for Windows paths.
+* You can assign multiple names to a single application and delete unnecessary default apps.
+
+Example:
+```json
+{
+  "notepad": "C:\\Windows\\notepad.exe",
+  "calculator": "calc.exe",
+  "notes": "notepad.exe"
+}
+```
+
+### 4. Enable Debug Mode
+In the `config.py` file, you can set `DEBUG = True`. If a JSON configuration is malformed or a system error occurs, the bot will print the detailed traceback (error stack) to the console to help you easily locate and fix the issue.
+
+### 5. Restore Default JSON Files
+If you accidentally delete or break the format of a JSON configuration file, you can restore it by visiting the project repository on GitHub, navigating to the `data/` directory, and downloading the corresponding default file.
+
+> [!IMPORTANT]
+> If a JSON file is syntactically invalid, the bot will temporarily disable that specific feature. To reactivate it, please fix the JSON file and restart the bot.
 
 ## Supported Commands
 
 ### Greeting
-
-User:
-
-```text
-xin chào
-hello
-```
-
-Assistant:
-
-```text
-Chào bạn
-hello
-```
+* **User:** `xin chào` / `hello`
+* **Assistant:** `Chào bạn` / `hello`
 
 ### Ask Name
-
-User:
-
-```text
-bạn tên gì vậy
-bạn tên gì
-what is your name
-what's your name
-```
-
-Assistant:
-
-```text
-Tôi là trợ lí ảo của bạn
-I am your virtual assistant
-```
+* **User:** `bạn tên gì` / `bạn tên gì vậy` / `what is your name`
+* **Assistant:** `Tôi là trợ lí ảo của bạn` / `I am your virtual assistant`
 
 ### Ask Time
-
-User:
-
-```text
-mấy giờ rồi
-what time is it
-```
-
-Assistant:
-
-```text
-Bây giờ là 17 giờ 5 phút
-It is 17:05
-```
+* **User:** `mấy giờ rồi` / `what time is it`
+* **Assistant:** `Bây giờ là [Hour] giờ [Minute] phút` / `It is [Hour]:[Minute]`
 
 ### Ask Date
+* **User:** `hôm nay là ngày mấy` / `ngày bao nhiêu` / `what day is it today`
+* **Assistant:** `Hôm nay là ngày...` / `Today is...`
 
-User:
+### Open Website
+* **User:** `mở google` / `mở youtube`
+* **Assistant:** `Đã mở google` / `Đã mở youtube`
 
-```text
-hôm nay là ngày mấy
-ngày mấy
-ngày bao nhiêu
-what is today's date
-what's today's date
-what is the date today
-what's the date
-what day is it today
-what day is it
-```
+### Open Application
+* **User:** `mở notepad` / `mở máy tính`
+* **Assistant:** `Đã mở notepad.` / `Đã mở máy tính.`
 
-Assistant:
-
-```text
-Hôm nay là ngày 15 tháng 6 năm 2026
-Today is June 15, 2026
-```
-
-### Open Website (Mở Website)
-
-User:
-```text
-mở google
-mở youtube
-mở github
-mở git hub
-mở gmail
-```
-
-Assistant:
-```text
-Đã mở google
-Đã mở youtube
-Đã mở github
-Đã mở git hub
-Đã mở gmail
-```
-
-### Open Application (Mở ứng dụng)
-
-User:
-```text
-mở notepad
-mở ghi chú
-mở máy tính
-mở calculator
-mở file explorer
-```
-
-Assistant:
-```text
-Đã mở notepad.
-Đã mở ghi chú.
-Đã mở máy tính.
-Đã mở calculator.
-Đã mở file explorer.
-```
-
-### Stop Listening (Tạm dừng nghe)
-
-User:
-```text
-Tạm dừng nghe
-dừng nghe
-Ngừng  nghe
-stop listening
-```
-
-Assistant:
-```text
-Đã dừng nghe, ấn phím tắt để tiếp tục nghe.
-Stopped listening, press the shortcut to continue listening.
-```
+### Stop Listening
+* **User:** `tạm dừng nghe` / `dừng nghe` / `stop listening`
+* **Assistant:** `Đã dừng nghe, ấn phím tắt để tiếp tục nghe.` (Press the default hotkey `Ctrl+Alt+A` to resume listening).
 
 ### Exit
-
-User:
-
-```text
-tạm biệt bạn
-bye
-kết thúc
-tạm biệt
-thoát
-good bye
-goodbye
-```
-
-Assistant:
-
-```text
-Tạm biệt bạn, cần giúp gì thì nói mình nhé
-good bye
-```
-
-The program will then exit.
+* **User:** `tạm biệt` / `kết thúc` / `bye` / `goodbye`
+* **Assistant:** `Tạm biệt bạn, cần giúp gì thì nói mình nhé` / `good bye` (The program will then exit).
 
 ## Troubleshooting
 
-### No module named 'speech_recognition'
-
-Install:
-
+### Error `No module named 'speech_recognition'`
+Install using `uv` or `pip`:
 ```bash
+uv add SpeechRecognition
+# or
 pip install SpeechRecognition
 ```
 
-### No module named 'sounddevice'
-
-Install:
-
+### Error `No module named 'sounddevice'`
+Install using `uv` or `pip`:
 ```bash
+uv add sounddevice
+# or
 pip install sounddevice
 ```
 
-### Permission denied: audio/Voice.mp3
+### Error `Permission denied: audio/Voice.mp3`
+The audio file may still be locked by the system/pygame. Make sure pygame has finished playing the file before deleting or recreating it.
 
-The audio file may still be in use.
+### Error `UnknownValueError`
+The speech recognizer could not understand the audio. Try speaking more clearly, reducing background noise, or increasing the recording duration.
 
-Make sure pygame has finished playing the file before deleting or recreating it.
+### JSON Format Error (JSONDecodeError)
+If a JSON configuration file has syntax errors, the program will output the line and column number where the error occurred.
 
-### UnknownValueError
+**Common JSON errors and how to fix them:**
 
-Speech recognition could not understand the audio.
+#### 1. Trailing comma in the last element
+* **INCORRECT:**
+  ```json
+  {
+    "google": "https://google.com",
+    "youtube": "https://youtube.com",
+  }
+  ```
+* **CORRECT:**
+  ```json
+  {
+    "google": "https://google.com",
+    "youtube": "https://youtube.com"
+  }
+  ```
 
-Try:
+#### 2. Incorrect quote marks (or single quotes)
+* **INCORRECT:**
+  ```json
+  {
+    'google': 'https://google.com',
+    notepad: "C:\\Windows\\notepad.exe"
+  }
+  ```
+* **CORRECT:**
+  ```json
+  {
+    "google": "https://google.com",
+    "notepad": "C:\\Windows\\notepad.exe"
+  }
+  ```
 
-* Speaking more clearly
-* Reducing background noise
-* Increasing recording duration
-
-## Future Plans
-
-* Read weather information.
-* Wake word support.
-* AI integration.
+#### 3. Missing comma between elements
+* **INCORRECT:**
+  ```json
+  {
+    "google": "https://google.com"
+    "youtube": "https://youtube.com"
+  }
+  ```
+* **CORRECT:**
+  ```json
+  {
+    "google": "https://google.com",
+    "youtube": "https://youtube.com"
+  }
+  ```
 
 ## Security Notes
-
-Do not store passwords or sensitive information inside source code.
-
-Keep API keys and tokens in environment variables whenever possible.
+* Keep an eye on `record.wav`: This file contains your actual voice recorded from the mic. It is ignored by `.gitignore` by default, but double-check it when modifying source code.
+* Do not store passwords or personal information in the source code. Use environment variables when API keys or tokens are needed.
 
 ## License
-
 MIT License

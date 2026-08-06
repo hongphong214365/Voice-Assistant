@@ -14,7 +14,7 @@ except (json.JSONDecodeError, FileNotFoundError) as error:
         "mở website",
         error,
     )
-    APPS = {}
+    SITES = {}
 
 
 def handle(text: str) -> str | None:

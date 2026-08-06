@@ -1,59 +1,26 @@
 # Trợ lý ảo bằng Python
 
-Trợ lý ảo bằng giọng nói đơn giản được viết bằng Python.
-
-Trợ lý có thể nghe qua micrô, chuyển giọng nói thành văn bản, xử lý các lệnh đơn giản và phản hồi bằng giọng nói tổng hợp.
+Trợ lý ảo điều khiển bằng giọng nói đơn giản, hỗ trợ nhận diện và phản hồi giọng nói (Tiếng Việt và Tiếng Anh) trên hệ điều hành Windows.
 
 [English version](README_en.md)
 
 ## Tính năng
-* Hỗ trợ các lệnh cơ bản bằng tiếng Anh.
-* Cấu hình cài đặt ngôn ngữ.
-* Ghi âm âm thanh từ micrô.
-* Chuyển giọng nói thành văn bản.
-* Phản hồi bằng giọng nói tổng hợp.
-* Chạy liên tục trong một vòng lặp.
-* Thoát khi người dùng nói "tạm biệt".
-* Xử lý các lệnh đơn giản thông qua một mô-đun brain riêng biệt.
-* Cấu trúc dự án dạng mô-đun để dễ dàng mở rộng trong tương lai.
+* Hỗ trợ nhận diện và phản hồi bằng cả Tiếng Việt và Tiếng Anh.
+* Điều khiển mở ứng dụng và website bằng giọng nói (dễ dàng tùy chỉnh).
+* Ghi âm từ micrô và chuyển giọng nói thành văn bản (STT).
+* Phản hồi bằng giọng nói tổng hợp (TTS).
+* Chạy liên tục theo vòng lặp, tự động tạm dừng hoặc thoát khi nhận lệnh.
 
 ## Yêu cầu hệ thống
-* Windows 
+* Windows
 * Python 3.11 hoặc mới hơn
 * Micrô
 * Kết nối Internet (để nhận dạng giọng nói và gTTS)
 
-## Cấu trúc dự án
+## Cài đặt thư viện
 
-```text
-assistant/
-│
-├── audio/            # Lưu các tệp âm thanh 
-├── commands/         # Bộ xử lý các lệnh tùy chỉnh
-│   ├── __init__.py
-│   ├── date_cmd.py
-│   ├── greeting_cmd.py
-│   ├── listening_cmd.py
-│   ├── openApp_cmd.py
-│   ├── openWeb_cmd.py
-│   └── time_cmd.py
-│
-├── listen.py         # Mô-đun chuyển giọng nói thành văn bản (STT)
-├── brain.py          # Bộ điều phối logic
-├── speak.py          # Mô-đun chuyển văn bản thành giọng nói (TTS)
-├── main.py           # Điểm khởi chạy ứng dụng
-├── config.py         # Cấu hình ngôn ngữ và các tham số
-└── README.md
-```
-
-
-
-## Cài đặt các thư viện phụ thuộc
-
-### Sử dụng uv (Được khuyến nghị)
-Dự án này được cấu hình với `uv`. Để chạy hoặc thêm các thư viện phụ thuộc:
+### Sử dụng uv (Khuyến nghị)
 ```bash
-# Thêm một thư viện
 uv sync
 ```
 
@@ -62,36 +29,9 @@ uv sync
 pip install -r requirements.txt
 ```
 
-## Cấu hình
-
-Ngôn ngữ của trợ lý có thể được thay đổi trong:
-
-```python
-# config.py
-LANG = "vi-VN"
-```
-
-Ví dụ:
-
-```python
-LANG = "vi-VN"
-```
-
-Tiếng Việt
-
-```python
-LANG = "en-US"
-```
-
-Tiếng Anh
-
-Sau khi thay đổi ngôn ngữ, hãy khởi động lại trợ lý.
-
-Lưu ý: Hiện tại bot chỉ hỗ trợ tiếng việt và tiếng anh.
-
 ## Chạy trợ lý ảo
 
-Sử dụng `uv` (Được khuyến nghị):
+Sử dụng `uv` (Khuyến nghị):
 ```bash
 uv run main.py
 ```
@@ -100,228 +40,174 @@ Sử dụng Python trực tiếp:
 ```bash
 python main.py
 ```
+*Khi khởi động thành công, trợ lý sẽ phát âm thanh và thông báo: "Chào bạn, tôi đã sẵn sàng" (hoặc "Hello, I'm ready" nếu cấu hình tiếng Anh).*
+
+## Cấu hình
+
+### 1. Cấu hình ngôn ngữ
+Bạn có thể thay đổi ngôn ngữ của trợ lý trong file `config.py` bằng cách sửa biến `LANG`:
+* Tiếng Việt: `LANG = "vi-VN"`
+* Tiếng Anh: `LANG = "en-US"`
+
+*Sau khi thay đổi ngôn ngữ, vui lòng khởi động lại trợ lý.*
+
+### 2. Cấu hình trợ lý mở Website
+Bạn có thể thêm hoặc sửa các website muốn trợ lý mở trong tệp `data/websites.json`.
+
+Định dạng JSON phải theo đúng cấu trúc `"tên_gọi": "đường_link"`:
+```json
+{
+  "google": "https://google.com",
+  "youtube": "https://youtube.com",
+  "facebook": "https://facebook.com",
+  "face book": "https://facebook.com"
+}
+```
+**Lưu ý:**
+* **Tên gọi (Key):** Tên bạn nói với bot để mở website đó. Bạn có thể đặt tên tùy thích. Nếu không chắc chắn bot nhận diện chuẩn, bạn có thể gán nhiều tên gọi khác nhau cho cùng một link (ví dụ `"facebook"` và `"face book"`).
+* **Đường link (Value):** Liên kết đến website. Nếu không chắc chắn link có đúng không, hãy copy chính xác từ thanh địa chỉ trình duyệt.
+* Bạn có thể xóa bỏ các đường link mặc định có sẵn nếu không thích.
+
+### 3. Cấu hình trợ lý mở Ứng dụng
+Tương tự như website, bạn cấu hình các ứng dụng muốn mở trong tệp `data/apps.json`.
+
+**Lưu ý:**
+* Bạn phải biết và cung cấp **chính xác đường dẫn tuyệt đối** tới file thực thi `.exe` thì bot mới mở được.
+* Cấu trúc JSON tương tự website. Lưu ý dùng dấu gạch chéo ngược kép `\\` (hoặc gạch chéo xuôi `/`) cho đường dẫn Windows.
+* Có thể gán nhiều tên cho một ứng dụng và xóa các app mặc định.
 
 Ví dụ:
-
-```text
-Chào bạn, tôi đã sẵn sàng.
+```json
+{
+  "notepad": "C:\\Windows\\notepad.exe",
+  "máy tính": "calc.exe",
+  "ghi chú": "notepad.exe"
+}
 ```
 
-Hoặc nếu cấu hình là tiếng anh:
-```text
-Hello, I'm ready.
-```
+### 4. Bật chế độ Debug
+Trong file `config.py`, bạn có thể sửa biến `DEBUG = True`. Khi cấu hình JSON bị sai định dạng hoặc xảy ra lỗi hệ thống, bot sẽ in chi tiết lỗi (traceback) ra màn hình console để bạn dễ theo dõi và sửa đổi.
+
+### 5. Khôi phục file JSON mặc định
+Nếu vô tình xóa hoặc sửa sai file JSON cấu hình, bạn có thể tải lại file gốc bị thiếu bằng cách vào repository dự án trên GitHub, mở thư mục `data/` và tải lại file tương ứng.
+
+> [!IMPORTANT]
+> Nếu file JSON bị sai định dạng cú pháp, bot sẽ tạm thời tắt tính năng đó. Để bật lại, vui lòng sửa lại file JSON cho đúng cấu trúc và restart (khởi động lại) bot.
 
 ## Các lệnh hỗ trợ
 
-### Xin chào (Greeting)
+### Xin chào
+* **Người dùng:** `xin chào` / `hello`
+* **Trợ lý:** `Chào bạn` / `hello`
 
-Người dùng:
+### Hỏi tên
+* **Người dùng:** `bạn tên gì` / `bạn tên gì vậy` / `what is your name`
+* **Trợ lý:** `Tôi là trợ lí ảo của bạn` / `I am your virtual assistant`
 
-```text
-xin chào
-hello
-```
+### Hỏi giờ
+* **Người dùng:** `mấy giờ rồi` / `what time is it`
+* **Trợ lý:** `Bây giờ là [Giờ] giờ [Phút] phút` / `It is [Hour]:[Minute]`
 
-Trợ lý:
+### Hỏi ngày
+* **Người dùng:** `hôm nay là ngày mấy` / `ngày bao nhiêu` / `what day is it today`
+* **Trợ lý:** `Hôm nay là ngày...` / `Today is...`
 
-```text
-Chào bạn
-hello
-```
+### Mở Website
+* **Người dùng:** `mở google` / `mở youtube`
+* **Trợ lý:** `Đã mở google` / `Đã mở youtube`
 
-### Hỏi tên (Ask Name)
+### Mở Ứng dụng
+* **Người dùng:** `mở notepad` / `mở máy tính`
+* **Trợ lý:** `Đã mở notepad.` / `Đã mở máy tính.`
 
-Người dùng:
+### Tạm dừng nghe
+* **Người dùng:** `tạm dừng nghe` / `dừng nghe` / `stop listening`
+* **Trợ lý:** `Đã dừng nghe, ấn phím tắt để tiếp tục nghe.` (Ấn phím tắt mặc định `Ctrl+Alt+A` để bật lại).
 
-```text
-bạn tên gì vậy
-bạn tên gì
-what is your name
-what's your name
-```
-
-Trợ lý:
-
-```text
-Tôi là trợ lí ảo của bạn
-I am your virtual assistant
-```
-
-### Hỏi giờ (Ask Time)
-
-Người dùng:
-
-```text
-mấy giờ rồi
-what time is it
-```
-
-Trợ lý:
-
-```text
-Bây giờ là 17 giờ 5 phút
-It is 17:05
-```
-
-### Hỏi ngày (Ask Date)
-
-Người dùng:
-
-```text
-hôm nay là ngày mấy
-ngày mấy
-ngày bao nhiêu
-what is today's date
-what's today's date
-what is the date today
-what's the date
-what day is it today
-what day is it
-```
-
-Trợ lý:
-
-```text
-Hôm nay là ngày 15 tháng 6 năm 2026
-Today is June 15, 2026
-```
-
-### Mở Website (Open Website)
-
-Người dùng:
-```text
-mở google
-mở youtube
-mở github
-mở git hub
-mở gmail
-```
-
-Trợ lý:
-```text
-Đã mở google
-Đã mở youtube
-Đã mở github
-Đã mở git hub
-Đã mở gmail
-```
-
-### Mở ứng dụng 
-
-Người dùng:
-```text
-mở notepad
-mở ghi chú
-mở máy tính
-mở calculator
-mở file explorer
-```
-
-Trợ lý:
-```text
-Đã mở notepad.
-Đã mở ghi chú.
-Đã mở máy tính.
-Đã mở calculator.
-Đã mở file explorer.
-```
-
-### Tạm dừng nghe (Stop Listening)
-
-Người dùng:
-```text
-tạm dừng nghe
-dừng nghe
-ngừng nghe
-stop listening
-```
-
-Trợ lý:
-```text
-Đã dừng nghe, ấn phím tắt để tiếp tục nghe.
-Stopped listening, press the shortcut to continue listening.
-```
-
-### Thoát (Exit)
-
-Người dùng:
-
-```text
-tạm biệt bạn
-bye
-kết thúc
-tạm biệt
-thoát
-good bye
-goodbye
-```
-
-Trợ lý:
-
-```text
-Tạm biệt bạn, cần giúp gì thì nói mình nhé
-good bye
-```
-
-Sau đó chương trình sẽ kết thúc.
+### Thoát
+* **Người dùng:** `tạm biệt` / `kết thúc` / `bye` / `goodbye`
+* **Trợ lý:** `Tạm biệt bạn, cần giúp gì thì nói mình nhé` / `good bye` (Sau đó chương trình sẽ tắt).
 
 ## Xử lý sự cố (Troubleshooting)
 
-### Lỗi No module named 'speech_recognition'
-
-Cài đặt:
-
-```bat
-uv add SpeechRecognition
-```
-
-hoặc
-
+### Lỗi `No module named 'speech_recognition'`
+Cài đặt bằng `uv` hoặc `pip`:
 ```bash
+uv add SpeechRecognition
+# hoặc
 pip install SpeechRecognition
 ```
 
-
-### Lỗi No module named 'sounddevice'
-
-Cài đặt:
-
+### Lỗi `No module named 'sounddevice'`
+Cài đặt bằng `uv` hoặc `pip`:
 ```bash
+uv add sounddevice
+# hoặc
 pip install sounddevice
 ```
 
-### Lỗi Permission denied: audio/Voice.mp3
+### Lỗi `Permission denied: audio/Voice.mp3`
+Tệp âm thanh có thể đang bị hệ thống/pygame khóa. Hãy đảm bảo pygame phát xong tệp âm thanh trước khi xóa hoặc tạo lại nó.
 
-Tệp âm thanh có thể vẫn đang được sử dụng.
+### Lỗi `UnknownValueError`
+Trình nhận dạng giọng nói không hiểu được âm thanh. Hãy thử nói rõ ràng hơn, giảm tiếng ồn xung quanh hoặc tăng thời lượng ghi âm.
 
-Đảm bảo pygame đã phát xong tệp âm thanh trước khi xóa hoặc tạo lại nó.
+### Lỗi định dạng JSON (JSONDecodeError)
+Nếu file cấu hình JSON bị lỗi cú pháp, chương trình sẽ báo dòng và cột bị lỗi.
 
-### Lỗi UnknownValueError
+**Một số lỗi JSON phổ biến và cách sửa:**
 
-Trình nhận dạng giọng nói không thể hiểu được âm thanh.
+#### 1. Dư dấu phẩy ở phần tử cuối cùng
+* **SAI:**
+  ```json
+  {
+    "google": "https://google.com",
+    "youtube": "https://youtube.com",
+  }
+  ```
+* **ĐÚNG:**
+  ```json
+  {
+    "google": "https://google.com",
+    "youtube": "https://youtube.com"
+  }
+  ```
 
-Hãy thử:
+#### 2. Dùng sai dấu ngoặc kép (hoặc dùng ngoặc đơn)
+* **SAI:**
+  ```json
+  {
+    'google': 'https://google.com',
+    notepad: "C:\\Windows\\notepad.exe"
+  }
+  ```
+* **ĐÚNG:**
+  ```json
+  {
+    "google": "https://google.com",
+    "notepad": "C:\\Windows\\notepad.exe"
+  }
+  ```
 
-* Nói rõ ràng hơn
-* Giảm tiếng ồn xung quanh
-* Tăng thời lượng ghi âm
-
-## Kế hoạch tương lai
-
-* Đọc thông tin thời tiết.
-* Hỗ trợ từ kích hoạt (Wake word).
-* Tích hợp AI.
+#### 3. Thiếu dấu phẩy giữa các dòng
+* **SAI:**
+  ```json
+  {
+    "google": "https://google.com"
+    "youtube": "https://youtube.com"
+  }
+  ```
+* **ĐÚNG:**
+  ```json
+  {
+    "google": "https://google.com",
+    "youtube": "https://youtube.com"
+  }
+  ```
 
 ## Lưu ý bảo mật
-
-Chú ý file record.wav: Đây là file chứa giọng nói thực tế của bạn. 
-Theo mặc định .gitidnore đã loại trừ nó nhưng bạn vẫn nên kiểm tra nếu đã sửa code.
-
-Không lưu trữ mật khẩu hoặc thông tin nhạy cảm trong mã nguồn.
-
-Hãy lưu các khóa API và mã thông báo (token) trong các biến môi trường bất cứ khi nào có thể.
+* Chú ý tệp `record.wav`: File này chứa giọng nói thực tế của bạn ghi từ mic. Dự án đã bỏ qua nó trong `.gitignore`, nhưng hãy kiểm tra kỹ khi chỉnh sửa mã nguồn.
+* Không lưu mật khẩu hoặc thông tin cá nhân trong mã nguồn. Hãy sử dụng biến môi trường khi cần dùng API key hoặc token.
 
 ## Giấy phép (License)
-
 MIT License
