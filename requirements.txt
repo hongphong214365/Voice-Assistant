@@ -516,7 +516,7 @@ pyobjc-framework-extensionkit==12.2.1 ; platform_release >= '22.0' and sys_platf
     # via pyobjc
 pyobjc-framework-externalaccessory==12.2.1 ; platform_release >= '17.0' and sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-fileprovider==12.2.1 ; platform_release >= '19.0' and sys_platform == 'darwin'
+pyobjc-framework-fileprovider==12.2.2 ; platform_release >= '19.0' and sys_platform == 'darwin'
     # via
     #   pyobjc
     #   pyobjc-framework-fileproviderui
