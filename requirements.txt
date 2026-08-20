@@ -554,7 +554,7 @@ pyobjc-framework-intents==12.2.1 ; platform_release >= '16.0' and sys_platform =
     # via
     #   pyobjc
     #   pyobjc-framework-intentsui
-pyobjc-framework-intentsui==12.2.1 ; platform_release >= '21.0' and sys_platform == 'darwin'
+pyobjc-framework-intentsui==12.2.2 ; platform_release >= '21.0' and sys_platform == 'darwin'
     # via pyobjc
 pyobjc-framework-iobluetooth==12.2.1 ; sys_platform == 'darwin'
     # via
