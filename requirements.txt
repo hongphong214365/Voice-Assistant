@@ -542,7 +542,7 @@ pyobjc-framework-gamesave==12.2.1 ; platform_release >= '25.0' and sys_platform 
     # via pyobjc
 pyobjc-framework-healthkit==12.2.1 ; platform_release >= '22.0' and sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-imagecapturecore==12.2.1 ; platform_release >= '10.0' and sys_platform == 'darwin'
+pyobjc-framework-imagecapturecore==12.2.2 ; platform_release >= '10.0' and sys_platform == 'darwin'
     # via pyobjc
 pyobjc-framework-inputmethodkit==12.2.1 ; platform_release >= '9.0' and sys_platform == 'darwin'
     # via pyobjc
