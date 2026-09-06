@@ -616,7 +616,7 @@ pyobjc-framework-metalperformanceshaders==12.2.1 ; platform_release >= '17.0' an
     #   pyobjc-framework-metalperformanceshadersgraph
 pyobjc-framework-metalperformanceshadersgraph==12.2.1 ; platform_release >= '20.0' and sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-metrickit==12.2.1 ; platform_release >= '21.0' and sys_platform == 'darwin'
+pyobjc-framework-metrickit==12.2.2 ; platform_release >= '21.0' and sys_platform == 'darwin'
     # via pyobjc
 pyobjc-framework-mlcompute==12.2.1 ; platform_release >= '20.0' and sys_platform == 'darwin'
     # via pyobjc
