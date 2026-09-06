@@ -706,7 +706,7 @@ pyobjc-framework-security==12.2.1 ; sys_platform == 'darwin'
     #   pyobjc-framework-securityui
 pyobjc-framework-securityfoundation==12.2.1 ; sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-securityinterface==12.2.1 ; sys_platform == 'darwin'
+pyobjc-framework-securityinterface==12.2.2 ; sys_platform == 'darwin'
     # via pyobjc
 pyobjc-framework-securityui==12.2.1 ; platform_release >= '24.4' and sys_platform == 'darwin'
     # via pyobjc
