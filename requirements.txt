@@ -584,7 +584,7 @@ pyobjc-framework-localauthentication==12.2.1 ; platform_release >= '14.0' and sy
     #   pyobjc-framework-localauthenticationembeddedui
 pyobjc-framework-localauthenticationembeddedui==12.2.1 ; platform_release >= '21.0' and sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-mailkit==12.2.1 ; platform_release >= '21.0' and sys_platform == 'darwin'
+pyobjc-framework-mailkit==12.2.2 ; platform_release >= '21.0' and sys_platform == 'darwin'
     # via pyobjc
 pyobjc-framework-mapkit==12.2.1 ; platform_release >= '13.0' and sys_platform == 'darwin'
     # via pyobjc
