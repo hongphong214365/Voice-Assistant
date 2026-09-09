@@ -632,7 +632,7 @@ pyobjc-framework-network==12.2.1 ; platform_release >= '18.0' and sys_platform =
     # via pyobjc
 pyobjc-framework-networkextension==12.2.1 ; platform_release >= '15.0' and sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-notificationcenter==12.2.1 ; platform_release >= '14.0' and sys_platform == 'darwin'
+pyobjc-framework-notificationcenter==12.2.2 ; platform_release >= '14.0' and sys_platform == 'darwin'
     # via pyobjc
 pyobjc-framework-opendirectory==12.2.1 ; platform_release >= '10.0' and sys_platform == 'darwin'
     # via pyobjc
