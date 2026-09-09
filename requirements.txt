@@ -466,7 +466,7 @@ pyobjc-framework-coremediaio==12.2.1 ; platform_release >= '11.0' and sys_platfo
     # via pyobjc
 pyobjc-framework-coremidi==12.2.1 ; sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-coreml==12.2.1 ; platform_release >= '17.0' and sys_platform == 'darwin'
+pyobjc-framework-coreml==12.2.2 ; platform_release >= '17.0' and sys_platform == 'darwin'
     # via
     #   pyobjc
     #   pyobjc-framework-vision
