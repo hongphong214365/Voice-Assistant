@@ -594,7 +594,7 @@ pyobjc-framework-mediaextension==12.2.1 ; platform_release >= '24.0' and sys_pla
     # via pyobjc
 pyobjc-framework-medialibrary==12.2.1 ; platform_release >= '13.0' and sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-mediaplayer==12.2.1 ; platform_release >= '16.0' and sys_platform == 'darwin'
+pyobjc-framework-mediaplayer==12.2.2 ; platform_release >= '16.0' and sys_platform == 'darwin'
     # via pyobjc
 pyobjc-framework-mediatoolbox==12.2.1 ; platform_release >= '13.0' and sys_platform == 'darwin'
     # via pyobjc
