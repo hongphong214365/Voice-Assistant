@@ -768,7 +768,7 @@ requests==2.34.2
     # via gtts
 scipy==1.18.0
     # via assistant
-setuptools==83.0.0
+setuptools==84.0.0
     # via pyinstaller
 sounddevice==0.5.5
     # via assistant
