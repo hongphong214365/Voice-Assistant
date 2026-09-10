@@ -492,7 +492,7 @@ pyobjc-framework-datadetection==12.2.1 ; platform_release >= '21.0' and sys_plat
     # via pyobjc
 pyobjc-framework-devicecheck==12.2.1 ; platform_release >= '19.0' and sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-devicediscoveryextension==12.2.1 ; platform_release >= '24.0' and sys_platform == 'darwin'
+pyobjc-framework-devicediscoveryextension==12.2.2 ; platform_release >= '24.0' and sys_platform == 'darwin'
     # via pyobjc
 pyobjc-framework-dictionaryservices==12.2.1 ; platform_release >= '9.0' and sys_platform == 'darwin'
     # via pyobjc
