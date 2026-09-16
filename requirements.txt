@@ -588,7 +588,7 @@ pyobjc-framework-mailkit==12.2.2 ; platform_release >= '21.0' and sys_platform =
     # via pyobjc
 pyobjc-framework-mapkit==12.2.1 ; platform_release >= '13.0' and sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-mediaaccessibility==12.2.1 ; platform_release >= '13.0' and sys_platform == 'darwin'
+pyobjc-framework-mediaaccessibility==12.2.2 ; platform_release >= '13.0' and sys_platform == 'darwin'
     # via pyobjc
 pyobjc-framework-mediaextension==12.2.1 ; platform_release >= '24.0' and sys_platform == 'darwin'
     # via pyobjc
