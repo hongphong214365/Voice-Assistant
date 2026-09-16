@@ -685,7 +685,7 @@ pyobjc-framework-safariservices==12.2.1 ; platform_release >= '16.0' and sys_pla
     # via pyobjc
 pyobjc-framework-safetykit==12.2.1 ; platform_release >= '22.0' and sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-scenekit==12.2.1 ; platform_release >= '11.0' and sys_platform == 'darwin'
+pyobjc-framework-scenekit==12.2.2 ; platform_release >= '11.0' and sys_platform == 'darwin'
     # via pyobjc
 pyobjc-framework-screencapturekit==12.2.1 ; platform_release >= '21.4' and sys_platform == 'darwin'
     # via pyobjc
