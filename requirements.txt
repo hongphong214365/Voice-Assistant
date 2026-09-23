@@ -40,7 +40,7 @@ pygame-ce==2.5.8
     # via assistant
 pyinstaller==6.22.2
     # via assistant
-pyinstaller-hooks-contrib==2026.6
+pyinstaller-hooks-contrib==2026.7
     # via pyinstaller
 pyobjc==12.2.2 ; sys_platform == 'darwin'
     # via keyboard
