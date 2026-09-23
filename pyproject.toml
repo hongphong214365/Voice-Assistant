@@ -9,7 +9,7 @@ dependencies = [
     "keyboard>=0.13.5",
     "pygame-ce>=2.5.7",
     "pyinstaller>=6.22.0",
-    "scipy>=1.18.0",
+    "scipy>=1.18.1",
     "sounddevice>=0.5.5",
     "speechrecognition>=3.17.0",
 ]

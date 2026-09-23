@@ -766,7 +766,7 @@ pywin32-ctypes==0.2.3 ; sys_platform == 'win32'
     # via pyinstaller
 requests==2.34.2
     # via gtts
-scipy==1.18.0
+scipy==1.18.1
     # via assistant
 setuptools==84.0.0
     # via pyinstaller
