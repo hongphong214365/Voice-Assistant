@@ -20,7 +20,7 @@ colorama==0.4.6 ; sys_platform == 'win32'
     # via click
 gtts==2.5.4
     # via assistant
-idna==3.20
+idna==3.19
     # via requests
 keyboard==0.13.5
     # via assistant
@@ -40,7 +40,7 @@ pygame-ce==2.5.8
     # via assistant
 pyinstaller==6.22.3
     # via assistant
-pyinstaller-hooks-contrib==2026.7
+pyinstaller-hooks-contrib==2026.8
     # via pyinstaller
 pyobjc==12.2.2 ; sys_platform == 'darwin'
     # via keyboard
@@ -168,6 +168,7 @@ pyobjc-core==12.2.2 ; sys_platform == 'darwin'
     #   pyobjc-framework-photos
     #   pyobjc-framework-photosui
     #   pyobjc-framework-preferencepanes
+    #   pyobjc-framework-pubsub
     #   pyobjc-framework-pushkit
     #   pyobjc-framework-quartz
     #   pyobjc-framework-quicklookthumbnailing
@@ -381,6 +382,7 @@ pyobjc-framework-cocoa==12.2.2 ; sys_platform == 'darwin'
     #   pyobjc-framework-photos
     #   pyobjc-framework-photosui
     #   pyobjc-framework-preferencepanes
+    #   pyobjc-framework-pubsub
     #   pyobjc-framework-pushkit
     #   pyobjc-framework-quartz
     #   pyobjc-framework-quicklookthumbnailing
@@ -652,6 +654,8 @@ pyobjc-framework-photosui==12.2.2 ; platform_release >= '15' and sys_platform ==
     # via pyobjc
 pyobjc-framework-preferencepanes==12.2.2 ; sys_platform == 'darwin'
     # via pyobjc
+pyobjc-framework-pubsub==12.2.2 ; platform_release >= '9' and platform_release < '18' and sys_platform == 'darwin'
+    # via pyobjc
 pyobjc-framework-pushkit==12.2.2 ; platform_release >= '19' and sys_platform == 'darwin'
     # via pyobjc
 pyobjc-framework-quartz==12.2.2 ; sys_platform == 'darwin'
@@ -780,5 +784,5 @@ standard-chunk==3.13.0
     # via standard-aifc
 typing-extensions==4.16.0
     # via speechrecognition
-urllib3==2.8.0
+urllib3==2.7.0
     # via requests
