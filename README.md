@@ -7,10 +7,11 @@ Trợ lý ảo điều khiển bằng giọng nói đơn giản, hỗ trợ nh�
 ## Tính năng
 * Hỗ trợ nhận diện và phản hồi bằng cả Tiếng Việt và Tiếng Anh.
 * Điều khiển mở ứng dụng và website bằng giọng nói (dễ dàng tùy chỉnh).
-* Ghi âm từ micrô và chuyển giọng nói thành văn bản (STT).
-* Phản hồi bằng giọng nói tổng hợp (TTS).
-* Chạy liên tục theo vòng lặp, tự động tạm dừng hoặc thoát khi nhận lệnh.
-
+* Hỗ trợ các câu lệnh cơ bản.
+* Có thể thay đổi các âm báo khi trợ lí đang nghe, nghe thành công, nghe lỗi.
+* Chuyển đổi ngôn ngữ dễ dàng.
+* Dừng trợ lí **không thoát** có thể đánh thức bất cứ khi nào bằng phím tắt.
+  
 ## Yêu cầu hệ thống
 * Windows
 * Python 3.11 hoặc mới hơn
@@ -18,17 +19,25 @@ Trợ lý ảo điều khiển bằng giọng nói đơn giản, hỗ trợ nh�
 * Kết nối Internet (để nhận dạng giọng nói và gTTS)
 
 ## Cài đặt thư viện
-
 ### Sử dụng uv (Khuyến nghị)
-```bash
+
+```bat
+# Dùng môi trường venv
+uv venv &&uv sync
+# Nếu không:
 uv sync
 ```
-
 ### Sử dụng pip
-```bash
+```bat
+# Dùng venv:
+python -m venv .venv
+# Kích hoạt venv (PowerShell):
+.\.venv\Scripts\activate.ps1
+# Kích hoạt venv (CMD):
+.venv\Scripts\activate.bat
+# Cài đặt thư viện:
 pip install -r requirements.txt
 ```
-
 ## Chạy trợ lý ảo
 
 Sử dụng `uv` (Khuyến nghị):
@@ -40,7 +49,8 @@ Sử dụng Python trực tiếp:
 ```bash
 python main.py
 ```
-*Khi khởi động thành công, trợ lý sẽ phát âm thanh và thông báo: "Chào bạn, tôi đã sẵn sàng" (hoặc "Hello, I'm ready" nếu cấu hình tiếng Anh).*
+
+*Khi khởi động thành công, trợ lý sẽ phát âm thanh và thông báo: "Chào bạn, tôi đã sẵn sàng".*
 
 ## Cấu hình
 
@@ -87,30 +97,39 @@ Ví dụ:
 
 ### 4. Bật chế độ Debug
 Trong file `config.py`, bạn có thể sửa biến `DEBUG = True`. Khi cấu hình JSON bị sai định dạng hoặc xảy ra lỗi hệ thống, bot sẽ in chi tiết lỗi (traceback) ra màn hình console để bạn dễ theo dõi và sửa đổi.
+### 5: Thay đổi âm thanh.
+Nếu bạn không thích âm thanh mặc định của trợ lí. Bạn có thể đổi chúng bằng cách:
+* Chuẩn bị file `.wav` của bạn. (Tốc độ lấy mẫu là: 44100.)
+* Mở thư mục `audio` trong dự án.
+* Tìm file bạn muốn thay thế:
+    * `start.wav`: Âm thanh phát ra khi bot **bắt đầu lắng nghe** lệnh từ bạn.
+    * `success.wav`: Âm thanh phát khi bot **nghe rõ câu lệnh và xử lí** lệnh của bạn.
+    * `error.wav`: Âm thanh phát khi trợ lí **không thể nghe rõ** câu lệnh của bạn.
+* Tiến hành thay thế bằng file của bạn.
 
-### 5. Khôi phục file JSON mặc định
+### 6. Khôi phục file JSON mặc định
 Nếu vô tình xóa hoặc sửa sai file JSON cấu hình, bạn có thể tải lại file gốc bị thiếu bằng cách vào repository dự án trên GitHub, mở thư mục `data/` và tải lại file tương ứng.
 
 > [!IMPORTANT]
-> Nếu file JSON bị sai định dạng cú pháp, bot sẽ tạm thời tắt tính năng đó. Để bật lại, vui lòng sửa lại file JSON cho đúng cấu trúc và restart (khởi động lại) bot.
+> Nếu file JSON bị sai định dạng cú pháp, bot sẽ tạm thời tắt tính năng đó. Để bật lại, vui lòng sửa lại file JSON cho đúng cấu trúc và khởi động lại trợ lí.
 
 ## Các lệnh hỗ trợ
 
 ### Xin chào
-* **Người dùng:** `xin chào` / `hello`
-* **Trợ lý:** `Chào bạn` / `hello`
+* **Người dùng:** `xin chào`
+* **Trợ lý:** `Chào bạn`
 
 ### Hỏi tên
-* **Người dùng:** `bạn tên gì` / `bạn tên gì vậy` / `what is your name`
-* **Trợ lý:** `Tôi là trợ lí ảo của bạn` / `I am your virtual assistant`
+* **Người dùng:** `bạn tên gì` / `bạn tên gì vậy`
+* **Trợ lý:** `Tôi là trợ lí ảo của bạn`
 
 ### Hỏi giờ
-* **Người dùng:** `mấy giờ rồi` / `what time is it`
-* **Trợ lý:** `Bây giờ là [Giờ] giờ [Phút] phút` / `It is [Hour]:[Minute]`
+* **Người dùng:** `mấy giờ rồi`
+* **Trợ lý:** `Bây giờ là [Giờ] giờ [Phút] phút`
 
 ### Hỏi ngày
-* **Người dùng:** `hôm nay là ngày mấy` / `ngày bao nhiêu` / `what day is it today`
-* **Trợ lý:** `Hôm nay là ngày...` / `Today is...`
+* **Người dùng:** `hôm nay là ngày mấy` / `ngày bao nhiêu`
+* **Trợ lý:** `Hôm nay là ngày...`
 
 ### Mở Website
 * **Người dùng:** `mở google` / `mở youtube`
@@ -121,12 +140,12 @@ Nếu vô tình xóa hoặc sửa sai file JSON cấu hình, bạn có thể t�
 * **Trợ lý:** `Đã mở notepad.` / `Đã mở máy tính.`
 
 ### Tạm dừng nghe
-* **Người dùng:** `tạm dừng nghe` / `dừng nghe` / `stop listening`
+* **Người dùng:** `tạm dừng nghe` / `dừng nghe`
 * **Trợ lý:** `Đã dừng nghe, ấn phím tắt để tiếp tục nghe.` (Ấn phím tắt mặc định `Ctrl+Alt+A` để bật lại).
 
 ### Thoát
 * **Người dùng:** `tạm biệt` / `kết thúc` / `bye` / `goodbye`
-* **Trợ lý:** `Tạm biệt bạn, cần giúp gì thì nói mình nhé` / `good bye` (Sau đó chương trình sẽ tắt).
+* **Trợ lý:** `Tạm biệt bạn, cần giúp gì thì nói mình nhé` (Sau đó chương trình sẽ tắt).
 
 ## Xử lý sự cố (Troubleshooting)
 
