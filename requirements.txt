@@ -26,7 +26,7 @@ keyboard==0.13.5
     # via assistant
 macholib==1.16.4 ; sys_platform == 'darwin'
     # via pyinstaller
-numpy==2.5.3
+numpy==2.5.4
     # via scipy
 packaging==26.3
     # via
