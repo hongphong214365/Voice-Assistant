@@ -12,7 +12,7 @@ certifi==2026.7.22
     # via requests
 cffi==2.1.1
     # via sounddevice
-charset-normalizer==3.5.2
+charset-normalizer==3.5.1
     # via requests
 click==8.1.8
     # via gtts
@@ -20,7 +20,7 @@ colorama==0.4.6 ; sys_platform == 'win32'
     # via click
 gtts==2.5.4
     # via assistant
-idna==3.20
+idna==3.19
     # via requests
 keyboard==0.13.5
     # via assistant
@@ -784,5 +784,5 @@ standard-chunk==3.13.0
     # via standard-aifc
 typing-extensions==4.16.0
     # via speechrecognition
-urllib3==2.8.0
+urllib3==2.7.0
     # via requests
