@@ -36,7 +36,7 @@ python -m venv .venv
 # Kích hoạt venv (CMD):
 .venv\Scripts\activate.bat
 # Cài đặt thư viện:
-pip install -r requirements.txt
+pip install -r setup/requirements.txt
 ```
 ## Chạy trợ lý ảo
 

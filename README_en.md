@@ -26,7 +26,7 @@ uv sync
 
 ### Using pip
 ```bash
-pip install -r requirements.txt
+pip install -r setup/requirements.txt
 ```
 
 ## Running The Assistant

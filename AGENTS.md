@@ -106,7 +106,8 @@ assistant/
 ├── main.py           # Điều phối chương trình
 ├── config.py         # Cấu hình ngôn ngữ và tham số
 ├── pyproject.toml    # Cấu hình dự án của uv
-├── requirements.txt  # Danh sách thư viện phụ thuộc (pip fallback)
+├── setup/            # Chứa các tệp cấu hình cài đặt
+│   └── requirements.txt  # Danh sách thư viện phụ thuộc (pip fallback)
 ├── LICENSE           # Giấy phép
 ├── AGENTS.md         # Hướng dẫn của Agent
 ├── README.md         # Hướng dẫn tiếng Việt
@@ -127,6 +128,7 @@ assistant/
 | commands/ | Chứa các lệnh của trợ lý |
 | tools/ | Các công cụ hỗ trợ phát triển |
 | audio/ | Lưu file âm thanh tạm |
+| setup/ | Chứa tệp cấu hình cài đặt (requirements.txt) |
 
 Không gộp toàn bộ logic vào một file nếu không thực sự cần thiết.
 
