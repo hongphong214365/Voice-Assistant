@@ -784,5 +784,5 @@ standard-chunk==3.13.0
     # via standard-aifc
 typing-extensions==4.16.0
     # via speechrecognition
-urllib3==2.7.0
+urllib3==2.8.0
     # via requests
