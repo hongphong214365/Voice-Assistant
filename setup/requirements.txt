@@ -34,7 +34,7 @@ packaging==26.3
     #   pyinstaller-hooks-contrib
 pefile==2024.8.26 ; sys_platform == 'win32'
     # via pyinstaller
-pycparser==3.11 ; implementation_name != 'PyPy'
+pycparser==3.12 ; implementation_name != 'PyPy'
     # via cffi
 pygame-ce==2.5.8
     # via assistant
