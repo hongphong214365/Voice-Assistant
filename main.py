@@ -1,5 +1,13 @@
 import os
+import sys
 import time
+
+# Configure output before importing command modules, which can print errors
+# while loading their external JSON files on Windows.
+for stream in (sys.stdout, sys.stderr):
+    if hasattr(stream, "reconfigure"):
+        stream.reconfigure(encoding="utf-8", errors="replace")
+
 from listen import listen
 from brain import think
 from speak import speech
