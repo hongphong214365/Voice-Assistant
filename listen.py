@@ -82,7 +82,8 @@ def listen():
     r = sr.Recognizer()
 
     try:
-        text = r.recognize_google(audio, language=LANG)
+        recognize_google = getattr(r, "recognize_google")
+        text = recognize_google(audio, language=LANG)
         play(SUCCESS_SOUND)
         return text
 
