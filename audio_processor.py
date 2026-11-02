@@ -14,3 +14,12 @@ def calculate_rms(data: np.ndarray) -> float:
         raise ValueError("Không thể tính RMS cho audio rỗng")
 
     return float(np.sqrt(np.mean(np.square(samples), dtype=np.float32)))
+
+
+def calculate_peak(data: np.ndarray) -> float:
+    """Trả về biên độ tuyệt đối lớn nhất trong block audio."""
+    samples = np.asarray(data, dtype=np.float32)
+    if samples.size == 0:
+        raise ValueError("Không thể tính Peak cho audio rỗng")
+
+    return float(np.max(np.abs(samples)))

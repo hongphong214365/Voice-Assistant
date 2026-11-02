@@ -79,7 +79,7 @@ Tiến hành từng lát cắt có thể kiểm thử độc lập: phép đo RM
 ## Tình trạng
 
 - [x] Nền streaming hiện tại dùng `InputStream` và xử lý audio trong RAM.
-- [ ] RMS và Peak độc lập, có unit test.
+- [x] RMS và Peak độc lập, có unit test.
 - [ ] VAD cơ bản, hysteresis và kết thúc theo im lặng.
 - [ ] Noise floor thích nghi.
 - [ ] Pre-roll, giới hạn tối thiểu/tối đa và timeout.
