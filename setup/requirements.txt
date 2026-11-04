@@ -488,7 +488,7 @@ pyobjc-framework-coretext==12.2.2 ; sys_platform == 'darwin'
     #   pyobjc-framework-applicationservices
 pyobjc-framework-corewlan==12.2.2 ; platform_release >= '10' and sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-cryptotokenkit==12.2.2 ; platform_release >= '14' and sys_platform == 'darwin'
+pyobjc-framework-cryptotokenkit==13.0 ; platform_release >= '14' and sys_platform == 'darwin'
     # via pyobjc
 pyobjc-framework-datadetection==12.2.2 ; platform_release >= '21' and sys_platform == 'darwin'
     # via pyobjc
