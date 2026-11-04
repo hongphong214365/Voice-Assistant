@@ -644,7 +644,7 @@ pyobjc-framework-oslog==12.2.2 ; platform_release >= '19' and sys_platform == 'd
     # via pyobjc
 pyobjc-framework-passkit==12.2.2 ; platform_release >= '20' and sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-pencilkit==12.2.2 ; platform_release >= '19' and sys_platform == 'darwin'
+pyobjc-framework-pencilkit==13.0 ; platform_release >= '19' and sys_platform == 'darwin'
     # via pyobjc
 pyobjc-framework-phase==12.2.2 ; platform_release >= '21' and sys_platform == 'darwin'
     # via pyobjc
