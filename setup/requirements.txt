@@ -648,7 +648,7 @@ pyobjc-framework-pencilkit==12.2.2 ; platform_release >= '19' and sys_platform =
     # via pyobjc
 pyobjc-framework-phase==12.2.2 ; platform_release >= '21' and sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-photos==12.2.2 ; platform_release >= '15' and sys_platform == 'darwin'
+pyobjc-framework-photos==13.0 ; platform_release >= '15' and sys_platform == 'darwin'
     # via pyobjc
 pyobjc-framework-photosui==12.2.2 ; platform_release >= '15' and sys_platform == 'darwin'
     # via pyobjc
