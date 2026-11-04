@@ -8,7 +8,7 @@ audioop-lts==0.2.2
     # via
     #   speechrecognition
     #   standard-aifc
-certifi==2026.10.23
+certifi==2026.10.19
     # via requests
 cffi==2.1.1
     # via sounddevice
@@ -26,15 +26,13 @@ keyboard==0.13.5
     # via assistant
 macholib==1.16.4 ; sys_platform == 'darwin'
     # via pyinstaller
-numpy==2.5.4
-    # via scipy
 packaging==26.3
     # via
     #   pyinstaller
     #   pyinstaller-hooks-contrib
 pefile==2024.8.26 ; sys_platform == 'win32'
     # via pyinstaller
-pycparser==3.12 ; implementation_name != 'PyPy'
+pycparser==3.11 ; implementation_name != 'PyPy'
     # via cffi
 pygame-ce==2.5.8
     # via assistant
@@ -770,8 +768,6 @@ pywin32-ctypes==0.2.3 ; sys_platform == 'win32'
     # via pyinstaller
 requests==2.34.2
     # via gtts
-scipy==1.18.1
-    # via assistant
 setuptools==84.2.1
     # via pyinstaller
 sounddevice==0.5.6
