@@ -701,7 +701,7 @@ pyobjc-framework-scriptingbridge==12.2.2 ; platform_release >= '9' and sys_platf
     # via pyobjc
 pyobjc-framework-searchkit==12.2.2 ; sys_platform == 'darwin'
     # via pyobjc
-pyobjc-framework-security==12.2.2 ; sys_platform == 'darwin'
+pyobjc-framework-security==13.0 ; sys_platform == 'darwin'
     # via
     #   pyobjc
     #   pyobjc-framework-localauthentication
