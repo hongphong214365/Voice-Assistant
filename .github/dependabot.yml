@@ -7,10 +7,11 @@ updates:
       interval: "weekly" # Kiểm tra hàng tuần
 
   # 2. Tự động update Python dependencies qua uv
-    - package-ecosystem: "uv"
+  - package-ecosystem: "uv"
     directory: "/"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
     exclude-paths:
       - "setup/requirements.txt"
+(<unknown>): did not find expected key while parsing a block mapping at line 4 column 5
