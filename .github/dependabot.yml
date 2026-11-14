@@ -14,4 +14,3 @@ updates:
     open-pull-requests-limit: 10
     exclude-paths:
       - "setup/requirements.txt"
-(<unknown>): did not find expected key while parsing a block mapping at line 4 column 5
